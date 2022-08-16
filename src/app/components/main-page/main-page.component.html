@@ -1,0 +1,32 @@
+
+
+<app-topbar text="Signout" (signoutBtn)="onLogout()"> </app-topbar>
+
+    <div class="">
+      <div class="row">
+        <div class="col-12">
+          <div>
+            <app-stat-box [panelDetails]="panelDetails"></app-stat-box>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <section>
+    <div class="container-fluid" style="margin-top: 25px">
+      <div class="row">
+        <div class="col-sm-3">
+          <app-skill-box [panelDetails]="panelDetails"></app-skill-box>
+        </div>
+
+        <div class="col-sm-9 calender-div">
+          <div class="container">
+            <!-- *******CALENDER COMPONENT COMES HERE******* -->
+            <app-calender [panelDetails]="panelDetails"></app-calender>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+

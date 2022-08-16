@@ -1,0 +1,339 @@
+<div class="my-module">
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        {{ update ? "Update Slot" : "Add Slot" }}
+      </h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="
+          this.update = false;
+          this.pickedDate = null;
+          this.selectedRecurringType = false;
+          modal.dismiss('Cross click')
+        "
+      ></button>
+    </div>
+
+    <div class="modal-body">
+      <form
+        class="add-form"
+        (ngSubmit)="
+          update ? updateEvent() : addEvent();
+          modal.dismiss('Cross click');
+          this.update = false
+        "
+      >
+        <div class="form-group">
+          <label for="skill">Skill</label>
+          <select
+            class="form-control"
+            id="skill"
+            [(ngModel)]="selectedValue"
+            name="skill_name"
+            required
+          >
+            <option
+              *ngFor="let skillSet of panelDetails.skills"
+              value="{{ skillSet }}"
+            >
+              {{ skillSet }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="round">Round</label>
+          <select
+            class="form-control"
+            id="round"
+            [(ngModel)]="selectedRoundValue"
+            name="round_number"
+            required
+          >
+            <option value="R1">R1</option>
+            <option value="R2">R2</option>
+            <option value="R3">R3</option>
+          </select>
+        </div>
+
+        <br />
+
+        <div class="form-check" [hidden]="update">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+            [checked]="checked"
+            (change)="checked = !checked"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Recurring
+          </label>
+        </div>
+
+        <div *ngIf="checked; then thenBlock; else elseBlock"></div>
+        <ng-template #thenBlock>
+          <input
+            class="form-control"
+            type="text"
+            mwlFlatpickr
+            [(ngModel)]="this.rangeDate"
+            (ngModelChange)="refresh.next()"
+            [ngModelOptions]="{ standalone: true }"
+            [altInput]="true"
+            [convertModelValue]="true"
+            [enableTime]="true"
+            dateFormat="Y-m-dTH:i"
+            altFormat="F j, Y H:i"
+            placeholder="Choose Start & End Date and Time"
+            mode="range"
+          />
+          <br />
+          <div class="form-group">
+            <label for="recurrType">Recurring Type</label>
+            <select
+              class="form-control"
+              id="recurrType"
+              [(ngModel)]="selectedRecurringType"
+              name="recurrType_number"
+            >
+              <option value="false">One Day of Week</option>
+              <option value="true">All Days of week</option>
+            </select>
+          </div>
+        </ng-template>
+        <ng-template #elseBlock>
+          <input
+            class="form-control"
+            type="text"
+            mwlFlatpickr
+            [(ngModel)]="this.pickedDate"
+            (ngModelChange)="refresh.next()"
+            [ngModelOptions]="{ standalone: true }"
+            [altInput]="true"
+            [convertModelValue]="true"
+            [enableTime]="true"
+            dateFormat="Y-m-dTH:i"
+            altFormat="F j, Y H:i"
+            placeholder="Choosen Date and Time"
+          />
+        </ng-template>
+
+        <div>
+          <!-- <button type="submit" class="btn btn-changed button-new">
+            Add new
+          </button> -->
+          <button type="submit" class="btn btn-success button-new">
+            {{ update ? "Update Slot" : "Add Slot" }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</div>
+
+<div class="row text-center">
+  <div class="col-xs-12 col-sm-6 col-md-3 aboveCalenderRow">
+    <div class="btn-group" role="group">
+      <button
+        type="button"
+        class="btn btn-primary"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Previous
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-info"
+        mwlCalendarToday
+        [(viewDate)]="viewDate"
+      >
+        Today
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 aboveCalenderRow">
+    <h3 class="period">
+      {{ viewDate | calendarDate: view + "ViewTitle":"en" }}
+    </h3>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 aboveCalenderRow">
+    <div class="btn-group" role="group">
+      <button
+        type="button"
+        class="btn btn-primary"
+        [class]="monthbtn"
+        (click)="setView(CalendarView.Month); monthClick()"
+        [class.active]="view === CalendarView.Month"
+      >
+        Month
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        [class]="weekbtn"
+        (click)="setView(CalendarView.Week); weekClick()"
+        [class.active]="view === CalendarView.Week"
+      >
+        Week
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        [class]="daybtn"
+        (click)="setView(CalendarView.Day); dayClick()"
+        [class.active]="view === CalendarView.Day"
+      >
+        Day
+      </button>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 aboveCalenderRow">
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="
+        open(content);
+        this.selectedRecurringType = false;
+        this.rangeDate = null;
+        this.pickedDate = null;
+        clearText()
+      "
+    >
+      Add Slot
+    </button>
+    <span class="example-spacer"></span>
+    <button
+      class="refreshBtn"
+      mat-mini-fab
+      color="primary"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Refresh the calendar"
+      (click)="showSlots()"
+    >
+      <mat-icon>cached</mat-icon>
+    </button>
+  </div>
+</div>
+<br />
+
+<!-- this is calander view -->
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view
+    *ngSwitchCase="CalendarView.Month"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (dayClicked)="
+      dateClicked($event.day, content, target);
+      this.existingSlotCheck && test($event, content, 1)
+    "
+  >
+  </mwl-calendar-month-view>
+
+  <mwl-calendar-week-view
+    *ngSwitchCase="CalendarView.Week"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="dayClicked($event, target)"
+    (hourSegmentClicked)="test($event, content, 2)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+  >
+  </mwl-calendar-week-view>
+
+  <mwl-calendar-day-view
+    *ngSwitchCase="CalendarView.Day"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="dayClicked($event, target)"
+    (hourSegmentClicked)="test($event, content, 2)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+  >
+  </mwl-calendar-day-view>
+</div>
+<br />
+
+<!-------add task---end-------->
+
+<div>
+  <div class="container">
+    <table class="table table-bordered">
+      <thead class="tableHeader">
+        <tr>
+          <th scope="col">No.</th>
+          <th style="text-align: center" scope="col">Start Slot</th>
+          <th style="text-align: center" scope="col">End Slot</th>
+          <th style="text-align: center" scope="col">Skill</th>
+          <th style="text-align: center" scope="col">Round</th>
+          <th style="text-align: center" scope="col">Remove Slot</th>
+          <th style="text-align: center" scope="col">Update Slot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="text-align: center"
+          *ngFor="let event of selectedEvents; let i = index"
+        >
+          <td class="align-middle">
+            {{ i + 1 }}
+          </td>
+          <td class="align-middle">
+            {{ event.startDate | date: "medium" }}
+          </td>
+          <td class="align-middle">
+            {{ event.endDate | date: "medium" }}
+          </td>
+          <td class="align-middle">
+            {{ event.skill }}
+          </td>
+          <td class="align-middle">
+            {{ event.round }}
+          </td>
+
+          <td class="align-middle">
+            <button mat-raised-button color="warn" (click)="deleteEvent(event)">
+              Delete<mat-icon>delete</mat-icon>
+            </button>
+          </td>
+          <td class="align-middle">
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="open(content); updateForm(event)"
+            >
+              Update<mat-icon>update</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div #target></div>
+</div>

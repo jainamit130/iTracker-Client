@@ -1,0 +1,78 @@
+{
+  "socialuserdetails":[
+    {
+      "email": "vartika.g@somaiya.edu",
+      "role" : "interviewer"
+    },
+    {
+      "email" : "tanya.aggarwal25@gmail.com",
+      "role":"interviewer"
+    },
+    {
+      "email" : "aayush.gupta3009@gmail.com",
+      "role":"recruiter"
+    },
+    {
+      "email" : "sweetysingh1609@gmail.com",
+      "role":"recruiter"
+    },
+    {
+      "email" : "sweety.182394201@vcet.edu.in",
+      "role":"recruiter"
+    }
+],
+  "userrole": {
+    "isUser": true,
+    "role":"ROLE_USER" 
+  },
+  "recruiterdata": [
+    {
+      "date": "2022-02-16T06:57:55.077Z",
+      "email": "ram@gmail.com",
+      "skill": "java",
+      "round": "1",
+      "startTime": "2022-03-16T06:57:55.077Z",
+      "endTime": "2022-03-16T06:57:55.077Z"
+    },
+    {
+      "date": "2022-03-16T06:57:55.077Z",
+      "email": "sham@gmail.com",
+      "skill": "python",
+      "round": "2",
+      "startTime": "2022-03-16T06:57:55.077Z",
+      "endTime": "2022-03-16T06:57:55.077Z"
+    },
+    {
+      "date": "2022-03-16T06:57:55.077Z",
+      "email": "mohan@gmail.com",
+      "skill": "java",
+      "round": "3",
+      "startTime": "2022-03-16T06:57:55.077Z",
+      "endTime": "2022-03-16T06:57:55.077Z"
+    }
+  ],
+  "panelDetails": {
+    "id": 1,
+    "name": "John Mayor",
+    "email": "JohnMayor@gmail.com",
+    "role": "Fullstack Developer",
+    "skillset": [
+      {
+        "skill": "java",
+        "round": "R1"
+      },
+      {
+        "skill": "MySQL",
+        "round": "R2"
+      },
+      {
+        "skill": "Spring",
+        "round": "R2"
+      }
+    ],
+    "currentMonth": 15,
+    "lastQuarter": 50,
+    "yearToDate": 145
+  },
+  "slotDetails": []
+}

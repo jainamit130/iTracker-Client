@@ -1,0 +1,28 @@
+<!-- <nav class="navbar" style="background-color: rgba(0, 0, 0)">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: white">iTracker</a>
+    <form class="d-flex">
+      <button
+        class="btn"
+        style="color: white; border-color: white; border-width: 1.5px"
+        type="button"
+        (click)="signOut()"
+      >
+        {{ text }}
+      </button>
+    </form>
+  </div>
+</nav> -->
+
+<mat-toolbar color="primary">
+  <img src="../../../assets/info.png" alt="" class="logo">
+  <span class="title">Tracker</span>
+  <span class="example-spacer"></span>
+  <span class="userName ">{{userDetails.name}}</span>
+  <img class="imgProfile .d-lg-none .d-xl-block" [src]=userDetails.photoUrl alt="profile image">
+  <button mat-raised-button color="primary" (click)="signOut()">
+    Signout
+    <mat-icon class=".d-lg-none .d-xl-block">exit_to_app</mat-icon>
+  </button>  
+</mat-toolbar>
+

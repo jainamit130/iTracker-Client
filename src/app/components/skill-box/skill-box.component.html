@@ -1,0 +1,58 @@
+<div class="skill">
+  <div>
+    <ul class="list-group">
+      <li
+        class="list-group-item active"
+        aria-current="true"
+        style="
+          background-color: rgba(234, 96, 7, 0.2);
+          color: black;
+          font-weight: 500;
+          border-color: transparent;
+        "
+      >
+        Skills
+      </li>
+
+      <li class="list-group-item" *ngFor="let item of panelDetails?.skills">
+        {{ item }}
+        <span class="showPanel"> </span>
+      </li>
+    </ul>
+  </div>
+  <br />
+  <br />
+  <h3>Instructions:</h3>
+
+  <div>
+    <ol class="list-group list-group-numbered">
+      <li class="list-group-item">Click on 'Add Slots' button</li>
+      <li class="list-group-item">
+        Choose the required option in 'Skill' & 'Round' sections
+      </li>
+      <li class="list-group-item">
+        For 'Recurring Slot' check the given checkbox. By default it will be for
+        one day
+      </li>
+      <li class="list-group-item">Select the required start date & time</li>
+      <li class="list-group-item">
+        For recurring select the end date & type as well
+      </li>
+
+      <li class="list-group-item">
+        Slots can be scheduled only after 2 weeks and before 44 days. so select
+        date accodingly.
+      </li>
+      <li class="list-group-item">Click on 'Add new' button to confirm slot</li>
+      <li class="list-group-item">
+        Click on 'Delete' button to delete the slot
+      </li>
+      <li class="list-group-item">
+        Click on 'Update' button to update the slot
+      </li>
+      <li class="list-group-item">
+        Slots out of range or past slots cannot be updated
+      </li>
+    </ol>
+  </div>
+</div>

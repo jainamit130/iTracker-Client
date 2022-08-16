@@ -1,0 +1,51 @@
+<div class="row ">
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="row">
+            <div class="col">
+                <div
+                class="btn btn-changed"
+                mwlCalendarPreviousView
+                [view]="view"
+                [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()"
+              >
+                Previous
+              </div>
+            </div>
+            <div class="col">
+                <div
+                class="btn btn-outline-secondary"
+                mwlCalendarToday
+                [(viewDate)]="viewDate"
+              >
+                Today
+              </div>
+            </div>
+            <div class="col">
+                <div
+                class="btn btn-changed"
+                mwlCalendarNextView
+                [view]="view"
+                [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()"
+              >
+                Next
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      One of three columns
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      One of three columns
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        One of three columns
+    </div>
+
+  </div>

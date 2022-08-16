@@ -1,0 +1,28 @@
+.top-row{
+    padding-top: 15px;
+}
+#alert{
+    display: none;
+    margin-top: 15px;
+}
+.noDataMsg{
+    display: none;
+}
+h2{
+    text-align: center;
+    justify-content: center;
+    color: grey;
+    padding-top: 60px;
+}
+.fullWidth{
+    width: 100%;
+}
+footer {
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: gray;
+    text-align: center;
+  }

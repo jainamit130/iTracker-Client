@@ -1,0 +1,35 @@
+#top{
+    margin-top: 20px;
+}
+
+
+.card{
+    border-radius: 15px;
+    /* box-shadow: -7px 7px 1px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
+
+}
+.card-header{
+    background-color: rgba(59,125,221,255);
+     border-top-right-radius: 15px; 
+     border-top-left-radius: 15px;
+     color: white;
+     font-size: larger;
+     font-weight: 600;
+}
+.card-title{
+     font-size: 15px; 
+    text-align: center;
+    font-weight: 500;
+}
+.circularbox{
+color: white;
+text-align: center;
+font-weight: 700;
+
+}
+.circularbox-outer{
+    border-radius: 10px;
+    background-color: rgba(59,125,221,255);
+    
+}

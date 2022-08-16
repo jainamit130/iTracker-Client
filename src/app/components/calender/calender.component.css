@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.tablebody {
+  display: flex;
+  width: 100%;
+}
+.container {
+  padding: 0;
+  margin: 0;
+}
+.addSlotbtn{
+  background-color: rgb(24, 172, 24);
+}
+.btn-changed {
+  color: #fff;
+  background-color: rgba(223, 86, 6, 0.7);
+  border-color: #2e2b2c;
+}
+
+.btn-outline-secondary1 {
+  border: 2px solid rgba(223, 86, 6, 0.7);
+}
+
+.roundbtn {
+  margin-left: 10px;
+}
+LABEL.indented-checkbox-text {
+  margin-left: 1.5em;
+  display: block;
+  position: relative;
+  margin-top: -1.4em; /* make this margin match whatever your line-height is */
+  line-height: 1.4em; /* can be set here, or elsewehere */
+}
+
+.button-new {
+  margin-top: 0.8em;
+}
+.tableHeader{
+  background-color: rgb(233, 240, 243);
+}
+.refreshBtn{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.aboveCalenderRow{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.period{
+  font-weight: 500;
+  margin-top: 5px;
+}

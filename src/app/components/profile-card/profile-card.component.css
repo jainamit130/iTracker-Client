@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+.profile{
+     background-color:transparent !important;
+    padding: 10px;
+    margin-top: 5px;
+}
+.profilecard{
+    border-radius: 15px;
+    max-width: 350px;
+    box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
+    padding-left: auto;
+    padding-right: auto;
+    margin: 0 auto; 
+    float: none;
+    justify-content: center;
+}
+.stats{
+    padding: 10px;
+    margin-top: 10px;
+} 
+
+.avatar {
+    border: 0.3rem solid rgba(#fff, 0.3);
+    margin-top: -3rem;
+    margin-bottom: 1rem;
+    max-width: 5rem;
+  }
+ .card-img-top{
+     height: 100px;
+ }
+.btn{
+    margin: 5px;
+    background-color: rgb(53, 52, 52);
+    color: #fff;
+}
+.profile-info{
+    background-color: rgba(234,96,7,0.5);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.displayname{
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-size: 25px;
+    font-weight: bolder;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+.card-subtitle{
+    color: rgb(71, 70, 70);
+}

@@ -1,0 +1,24 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+.title{
+    margin-top: 8px;
+} 
+.userName{
+    margin-top: 10px;
+    font-size: medium;    
+}
+.imgProfile{
+    width: 45px;
+    height: auto;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-right: 15px;
+    margin-left: 10px;
+}
+.logo{
+    margin-left: 8%;
+    width: 45px;
+    height: auto;
+    border-radius: 50%;
+}

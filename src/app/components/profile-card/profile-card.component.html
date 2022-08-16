@@ -1,0 +1,29 @@
+<div class="container profile">
+  <div class="row">
+    <div class="col-12">
+      <div class="card profilecard">
+        <img
+          class="card-img-top"
+          src="https://mma.prnewswire.com/media/1228338/Accolite_Logo_Grey.jpg?p=facebook"
+          alt="Bologna"
+          style="border-radius: 15px"
+        />
+        <div class="card-body text-center profile-info">
+          <img
+            class="avatar rounded-circle"
+            [src]="userDetails.photoUrl"
+            style="margin-bottom: -1px"
+            *ngIf="userDetails.photoUrl"
+          />
+          <img class="avatar rounded-circle" src="https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425__340.png"  style="margin-bottom: -1px"
+            *ngIf="!userDetails.photoUrl" />
+          
+          <h2 class="displayname">{{userDetails.name}}</h2>
+          <h3 class="card-title" style="margin-bottom: -5px">({{ panelDetails?.id }})</h3>
+          <h4 class="card-subtitle mb-2">{{ panelDetails?.email }}</h4>
+          <!-- <a href="#" class="btn">Plan Slots</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

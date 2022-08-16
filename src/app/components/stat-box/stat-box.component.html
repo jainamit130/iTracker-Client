@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <app-profile-card [panelDetails]="panelDetails"> </app-profile-card>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3 statcard">
+    <app-donut
+      heading="Quaterly"
+      subhead="Total Interviews"
+      per="{{ stats?.lastQuarter }}"
+    ></app-donut>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3 statcard">
+    <app-line
+      heading="Yearly"
+      subhead="Total Interviews"
+      per="{{ stats?.yearToDate }}"
+      prevYear="{{ stats?.lastYear }}"
+    ></app-line>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 statcard">
+    <app-pie
+      heading="Last Month"
+      subhead="Total Interviews"
+      per="{{ stats?.currentMonth }}"
+      prevMonth="{{ stats?.lastMonth }}"
+    ></app-pie>
+  </div>
+</div>
